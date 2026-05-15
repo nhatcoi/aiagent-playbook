@@ -1,5 +1,11 @@
 # GitHub Repos — phân loại
 
+## Catalog cá nhân (đã star / tìm hiểu)
+
+Repo bạn đang theo dõi được lưu riêng (bảng + mô tả): **[repos/](./repos/README.md)**.
+
+---
+
 ## 🎓 Foundation / Learning
 
 - [microsoft/ai-agents-for-beginners](https://github.com/microsoft/ai-agents-for-beginners) — 11 lesson course
