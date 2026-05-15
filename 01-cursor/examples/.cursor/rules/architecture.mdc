@@ -1,0 +1,48 @@
+---
+description: Quyết định kiến trúc — đọc khi design feature mới
+alwaysApply: false
+---
+
+# Architecture
+
+## Layout monorepo
+```
+apps/
+├── web/          (Next.js)
+├── api/          (NestJS)
+└── worker/       (BullMQ)
+
+packages/
+├── ui/           (component dùng chung)
+├── types/        (shared types)
+├── config/       (eslint, tsconfig)
+└── db/           (Prisma schema + client)
+```
+
+## Boundary
+- `apps/*` KHÔNG import lẫn nhau
+- `apps/*` chỉ import `packages/*`
+- `packages/*` không import `apps/*`
+
+## Domain modules (apps/api)
+```
+modules/
+├── user/
+│   ├── user.controller.ts
+│   ├── user.service.ts
+│   ├── user.repository.ts
+│   ├── user.module.ts
+│   └── dto/
+└── order/
+```
+Mỗi module = bounded context. Communication qua event hoặc service interface, không gọi service module khác trực tiếp.
+
+## Khi nào tạo module mới
+- Domain rõ ràng, có entity riêng
+- Có ít nhất 3 use case
+- Không tạo "common", "util" module — nó sẽ thành bãi rác
+
+## Async work
+- < 1s: HTTP đồng bộ
+- 1-10s: HTTP + progress polling
+- > 10s: queue (BullMQ) + webhook callback

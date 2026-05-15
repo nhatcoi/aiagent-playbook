@@ -1,0 +1,41 @@
+---
+description: Rule frontend React + TypeScript + Tailwind
+globs:
+  - "src/web/**/*.{ts,tsx}"
+  - "apps/web/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# Frontend Rules
+
+## Stack
+- React 18 + functional component + hooks
+- TypeScript strict, không `any`
+- Tailwind CSS, không CSS Modules
+- State: Zustand (global), useState (local)
+- Data fetching: TanStack Query
+
+## Convention
+- Component file: PascalCase `UserCard.tsx`
+- Hook file: camelCase `useAuth.ts`
+- Test: `*.test.tsx` cùng folder
+
+## DO
+- ✅ Memo expensive component với `memo` + `useMemo`
+- ✅ Extract logic phức tạp thành custom hook
+- ✅ Error boundary cho route level
+
+## DON'T
+- ❌ Inline object/array làm prop → re-render lung tung
+- ❌ useEffect để fetch — dùng React Query
+- ❌ Prop drilling > 2 cấp — lift hoặc dùng context
+
+## Example
+```tsx
+// ✅ tốt
+const items = useMemo(() => filter(data), [data])
+return <List items={items} />
+
+// ❌ tệ
+return <List items={data.filter(...)} />
+```

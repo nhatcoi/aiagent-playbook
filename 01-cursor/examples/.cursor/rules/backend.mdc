@@ -1,0 +1,38 @@
+---
+description: Rule backend Node + NestJS hoặc Go
+globs:
+  - "src/api/**/*.{ts,go}"
+  - "apps/api/**/*.{ts,go}"
+alwaysApply: false
+---
+
+# Backend Rules
+
+## Layering
+```
+controller → service → repository → db
+```
+- Controller: validate input, không business logic
+- Service: business logic, không SQL trực tiếp
+- Repository: chỉ tương tác DB
+
+## Error handling
+- Throw domain error (`NotFoundError`, `ValidationError`)
+- Middleware cuối map → HTTP code
+- Không return `null` để báo lỗi — throw
+
+## API
+- REST: kebab-case URL `/users/:id/orders`
+- Response: `{ data, error, meta }` chuẩn
+- Pagination: `?page=1&limit=20`, return `total`
+
+## Security
+- Validate mọi input (Zod / class-validator)
+- Sanitize trước khi log
+- Rate limit endpoint public
+- Auth check ở controller, không service
+
+## DON'T
+- ❌ `SELECT *` — chỉ lấy field cần
+- ❌ N+1 query — eager load hoặc dataloader
+- ❌ Sync I/O trong handler

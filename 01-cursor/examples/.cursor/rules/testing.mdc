@@ -1,0 +1,42 @@
+---
+description: Rule viết test
+globs:
+  - "**/*.test.{ts,tsx,js}"
+  - "**/*.spec.{ts,tsx,js}"
+  - "**/__tests__/**"
+alwaysApply: false
+---
+
+# Testing Rules
+
+## Tỉ lệ
+- Unit > Integration > E2E (kim tự tháp)
+- Coverage không phải mục tiêu — test path quan trọng
+
+## Cấu trúc test
+```ts
+describe("UserService", () => {
+  describe("createUser", () => {
+    it("should reject duplicate email", async () => {
+      // arrange
+      // act
+      // assert
+    })
+  })
+})
+```
+
+## DO
+- ✅ Test edge case: empty, null, max, concurrency
+- ✅ Integration test hit DB thật (testcontainers)
+- ✅ Test name kể câu chuyện: "should X when Y"
+
+## DON'T
+- ❌ Mock những thứ mình viết (mock external thôi)
+- ❌ `expect(true).toBe(true)` — test giả
+- ❌ Share state giữa test
+- ❌ Test implementation detail, test behavior
+
+## Snapshot
+- Dùng cho output ổn định (config, schema)
+- Không cho component lớn — fragile

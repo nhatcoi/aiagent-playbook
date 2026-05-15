@@ -1,0 +1,38 @@
+---
+description: Rule DB migration & schema
+globs:
+  - "db/migrations/**"
+  - "prisma/**"
+  - "**/*.sql"
+alwaysApply: false
+---
+
+# Database Rules
+
+## Migration
+- Mỗi migration: 1 chuyện duy nhất (add column, add index…)
+- Có cả `up` và `down` (revertable)
+- KHÔNG sửa migration đã merged — tạo migration mới
+
+## Schema
+- Bảng: snake_case số nhiều `users`, `order_items`
+- Column: snake_case `created_at`
+- PK: `id` UUID v7 (sortable) hoặc bigint
+- FK: `<table>_id` + index
+
+## An toàn
+- Add NOT NULL column lớn → 3 bước:
+  1. add nullable
+  2. backfill
+  3. alter NOT NULL
+- Drop column → soft delete trước (rename `_deprecated_`), drop sau 1 release
+- Long-running migration → batch, không lock table
+
+## Index
+- Index FK column
+- Composite index: cột selective trước
+- Đừng index column update thường xuyên
+
+## DON'T
+- ❌ `DROP TABLE` trong migration prod mà không backup
+- ❌ Default value tính bằng function non-deterministic

@@ -1,0 +1,22 @@
+---
+description: Quy tắc chung toàn dự án
+alwaysApply: true
+---
+
+# General Rules
+
+## Engineering Principles
+- Đọc code trước khi viết
+- Reuse module có sẵn, không tạo mới nếu trùng
+- Đừng break public API
+- Function < 50 dòng, file < 400 dòng
+
+## Communication
+- Trả lời tiếng Việt, code/identifier tiếng Anh
+- Đưa file path + line number khi reference code
+- Khi không chắc → hỏi, đừng đoán
+
+## Forbidden
+- ❌ commit secret (`.env`, key)
+- ❌ `console.log` trong code production
+- ❌ catch lỗi rồi swallow im lặng
