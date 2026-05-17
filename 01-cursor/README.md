@@ -59,10 +59,34 @@ alwaysApply: false
 | Hook | Không có | `.claude/hooks/` |
 | Memory | Không native | `.claude/memory/` |
 
+## Ecosystem repos — kit & collections
+
+| Loại | Repo | Mục đích |
+|------|------|----------|
+| **CLI Kit** | [duongductrong/cursor-kit](https://github.com/duongductrong/cursor-kit) | CLI khởi tạo rule, commands, skills; kéo template; share config |
+| **Community directory** | [pontusab/cursor.directory](https://github.com/pontusab/cursor.directory) | Directory rule theo stack, search được |
+| **Curated list** | [PatrickJS/awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) | `.cursorrules` theo từng ngôn ngữ / framework |
+| **Agentic workflow** | [s-smits/agentic-cursorrules](https://github.com/s-smits/agentic-cursorrules) | Rule biến Cursor thành agent tự lập kế hoạch |
+| **Devin-like** | [grapeot/devin.cursorrules](https://github.com/grapeot/devin.cursorrules) | Rule làm Cursor gần giống Devin: plan → execute → reflect |
+| **Method** | [bmadcode/BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD) | Framework dùng rule + agent cho product dev (work cả Cursor + Claude) |
+
+### Khi nào dùng loại nào
+
+```
+Bắt đầu dự án, cần bộ rule nhanh     →  cursor.directory hoặc awesome-cursorrules
+Muốn CLI khởi tạo có tool tốt         →  cursor-kit
+Muốn Cursor tự plan + loop agent      →  agentic-cursorrules hoặc devin.cursorrules
+Làm product team, cần method rõ       →  BMAD-METHOD
+```
+
+## Deep-dive nội bộ
+- [docs/rule-types.md](./docs/rule-types.md) — 4 loại rule, best practices
+- [docs/rules-playbook.md](./docs/rules-playbook.md) — viết rule trigger đúng, không tốn token, tái lặp ổn định
+
 ## Tài liệu chính thức
 - https://docs.cursor.com/context/rules
 - https://docs.cursor.com/agent
 
 ## Xem thêm
-- [docs/](./docs) — chi tiết từng loại rule
 - [examples/](./examples) — bộ rule mẫu cho dự án full-stack
+- [references.md](./references.md) — links tổng hợp
