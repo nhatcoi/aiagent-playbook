@@ -5,7 +5,10 @@
       "Bash(rtk read *)",
       "Bash(gh repo *)",
       "WebFetch(domain:github.com)",
-      "Bash(log show *)"
+      "Bash(mkdir -p /Volumes/NVME_NHAT/Documents/Agent/aiagent-playbook/14-real-world-apps/mobile-saas-backend/.claude/skills/subscription-billing-debug/references)",
+      "Bash(mkdir -p /Volumes/NVME_NHAT/Documents/Agent/aiagent-playbook/14-real-world-apps/mobile-saas-backend/.claude/skills/ai-cost-optimize/references)",
+      "Bash(mkdir -p /Volumes/NVME_NHAT/Documents/Agent/aiagent-playbook/14-real-world-apps/mobile-saas-backend/.claude/skills/backend-domain-review)",
+      "Bash(mkdir -p /Volumes/NVME_NHAT/Documents/Agent/aiagent-playbook/14-real-world-apps/mobile-saas-backend/.claude/skills/incident-commander)"
     ]
   }
 }

@@ -73,6 +73,20 @@ explorer agent
 └── question-answer over codebase
 ```
 
+## Case 6: Mobile SaaS Backend — AI Subscription App
+
+**Problem**: server team cần agent hiểu domain (subscription, billing, AI cost, retention) thay vì chỉ biết CRUD.
+
+**Skills được build** (copy-ready vào project thật):
+- `subscription-billing-debug` — debug purchase fail, webhook, grace period, idempotency
+- `ai-cost-optimize` — phân tích cost, cache, queue, abuse pattern
+- `backend-domain-review` — review PR/design theo revenue risk, không phải code style
+- `incident-commander` — P0 response framework (disable-model-invocation)
+
+**Bài học**: skill trigger nên dùng business language ("billing fail") thay vì technical ("webhook handler"). Reference file tách ra `references/` để update độc lập theo platform changes.
+
+→ [mobile-saas-backend/](./mobile-saas-backend/)
+
 ## Bài học chung
 
 | Bài học | Chi tiết |
