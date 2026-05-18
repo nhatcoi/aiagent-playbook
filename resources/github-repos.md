@@ -29,6 +29,11 @@ Repo bạn đang theo dõi được lưu riêng (bảng + mô tả): **[repos/](
 - [RooCodeInc/Roo-Code](https://github.com/RooCodeInc/Roo-Code)
 - [continuedev/continue](https://github.com/continuedev/continue)
 - [bmadcode/BMAD-METHOD](https://github.com/bmadcode/BMAD-METHOD)
+- [openai/codex](https://github.com/openai/codex) — OpenAI Codex CLI (AGENTS.md, sandbox)
+- [block/goose](https://github.com/block/goose) — OSS AI agent CLI
+- [sourcegraph/amp](https://github.com/sourcegraph/amp) — Sourcegraph terminal agent
+- [google-gemini/gemini-cli](https://github.com/google-gemini/gemini-cli) — Gemini CLI agent
+- [QwenLM/qwen-code](https://github.com/QwenLM/qwen-code) — Qwen Coder CLI
 
 ## 🤖 Autonomous SWE
 

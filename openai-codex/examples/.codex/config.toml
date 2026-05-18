@@ -1,0 +1,42 @@
+# Codex CLI — project-level config
+# Override ~/.codex/config.toml khi chạy trong repo này
+
+model = "gpt-5-codex"
+model_provider = "openai"
+
+# Approval khi command fail (tiết kiệm prompt nhưng vẫn an toàn)
+approval_policy = "on-failure"
+
+# Ghi được trong cwd + /tmp, không network
+sandbox_mode = "workspace-write"
+
+# Notification khi cần approval
+notify = ["terminal-notifier"]
+
+# Shell env cấp tool — restrict
+[shell_environment_policy]
+inherit = "core"
+include_only = ["PATH", "HOME", "LANG", "LC_*"]
+exclude = ["AWS_*", "GCP_*", "*_SECRET", "*_TOKEN", "*_KEY"]
+
+# MCP servers
+[mcp_servers.github]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-github"]
+env = { GITHUB_PERSONAL_ACCESS_TOKEN = "${GITHUB_TOKEN}" }
+
+[mcp_servers.postgres]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-postgres", "postgresql://localhost/dev"]
+
+[mcp_servers.filesystem]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-filesystem", "/home/user/project"]
+
+# History
+[history]
+persistence = "save-all"   # save-all | none
+
+# Tools tắt nếu không cần
+[tools]
+web_search = false

@@ -21,6 +21,7 @@ Repo cá nhân học sâu về AI Agent: từ nền tảng → từng agent (Cur
 | 12 | [12-mcp](./12-mcp) | Model Context Protocol — chuẩn tool/resource |
 | 13 | [13-multi-agent-patterns](./13-multi-agent-patterns) | Patterns: supervisor, hierarchical, debate, blackboard |
 | 14 | [14-real-world-apps](./14-real-world-apps) | Case study: bug fixer, data pipeline, doc agent |
+| 15 | [15-openai-codex](./15-openai-codex) | OpenAI Codex CLI — `AGENTS.md` + `.codex/`, sandbox Seatbelt/Landlock |
 | ∞ | [resources](./resources) | Papers, blogs, videos, GitHub repos |
 
 ## Cách dùng
